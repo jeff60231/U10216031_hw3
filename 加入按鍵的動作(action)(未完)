@@ -5,64 +5,70 @@ import javax.swing.event.*;
 import javax.swing.JFrame;
 
 
-public class GUI_BMI  {
 
-	/**
-	 * @wbp.parser.entryPoint
-	 */
+public class GMIBMI  extends JFrame   {
+
+	String name;
+	int age;
+	double weight;
+	double height;
 	public static void main(String[] args){
-		JFrame test= new JFrame();
+		GMIBMI test= new GMIBMI();
 		test.setSize(400,300);
 		test.setTitle("GUI_BMI");
 		test.setLocationRelativeTo(null);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.getContentPane().setLayout(new GridBagLayout());
-
+	
+		test.setVisible(true);
+	}
+	
+	public GMIBMI(){
+		
 		JLabel l1 = new JLabel("Name:");
 		GridBagConstraints g1 = new GridBagConstraints();
-		
 		g1.gridx = 0;
 		g1.gridy = 0;
 		g1.gridwidth = 1;
 		g1.gridheight = 1;
-		
 		g1.fill = GridBagConstraints.NONE;
 		g1.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l1,g1);
-
+		this.getContentPane().add(l1,g1);
+		
+		
 		JLabel l2 = new JLabel("age:");
 		GridBagConstraints g2 = new GridBagConstraints();
-		
 		g2.gridx = 0;
 		g2.gridy = 1;
 		g2.gridwidth = 1;
 		g2.gridheight = 1;
 		g2.fill = GridBagConstraints.NONE;
 		g2.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l2,g2);
-
-		JLabel l3 = new JLabel("height(in meter):");
-		GridBagConstraints g3 = new GridBagConstraints();
+		this.getContentPane().add(l2,g2);
 		
+		
+		JLabel l3 = new JLabel("weight(in kg):");
+		GridBagConstraints g3 = new GridBagConstraints();
 		g3.gridx = 0;
 		g3.gridy = 2;
 		g3.gridwidth = 1;
 		g3.gridheight = 1;
 		g3.fill = GridBagConstraints.NONE;
 		g3.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l3,g3);
-
-		JLabel l4 = new JLabel("weight(in kg):");
-		GridBagConstraints g4 = new GridBagConstraints();
+		this.getContentPane().add(l3,g3);
 		
+		
+		JLabel l4 = new JLabel("height(in meter):");
+		GridBagConstraints g4 = new GridBagConstraints();
 		g4.gridx = 0;
 		g4.gridy = 3;
 		g4.gridwidth = 1;
 		g4.gridheight = 1;
 		g4.fill = GridBagConstraints.NONE;
 		g4.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l4,g4);
-
+		this.getContentPane().add(l4,g4);
+		
+		
 		JTextField jt1 = new JTextField();
 		GridBagConstraints g5 = new GridBagConstraints();
 		g5.gridx = 2;
@@ -71,7 +77,9 @@ public class GUI_BMI  {
 		g5.gridheight = 1;
 		g5.fill = GridBagConstraints.BOTH;
 		g5.anchor = GridBagConstraints.WEST;
-		test.add(jt1,g5);
+		String name = jt1.getText();
+		this.add(jt1,g5);
+		
 		JTextField jt2 = new JTextField();
 		GridBagConstraints g6 = new GridBagConstraints();
 		g6.gridx = 2;
@@ -80,8 +88,10 @@ public class GUI_BMI  {
 		g6.gridheight = 1;
 		g6.fill = GridBagConstraints.BOTH;
 		g6.anchor = GridBagConstraints.WEST;
-		test.add(jt2,g6);
-
+		String ageTemp = jt2.getText();
+		int age = Integer.parseInt(ageTemp);
+		this.add(jt2,g6);
+		
 		JTextField jt3 = new JTextField();
 		GridBagConstraints g7 = new GridBagConstraints();
 		g7.gridx = 2;
@@ -90,8 +100,10 @@ public class GUI_BMI  {
 		g7.gridheight = 1;
 		g7.fill = GridBagConstraints.BOTH;
 		g7.anchor = GridBagConstraints.WEST;
-		test.add(jt3,g7);
-
+		String weightTemp = jt3.getText();
+		double weight = Double.parseDouble(weightTemp);
+		this.add(jt3,g7);
+		
 		JTextField jt4 = new JTextField();
 		GridBagConstraints g8 = new GridBagConstraints();
 		g8.gridx = 2;
@@ -100,7 +112,9 @@ public class GUI_BMI  {
 		g8.gridheight = 1;
 		g8.fill = GridBagConstraints.BOTH;
 		g8.anchor = GridBagConstraints.WEST;
-		test.add(jt4,g8);
+		String heightTemp = jt4.getText();
+		double height = Double.parseDouble(heightTemp);
+		this.add(jt4,g8);
 		
 		JButton jb1 = new JButton("start");
 		GridBagConstraints g9 = new GridBagConstraints();
@@ -110,15 +124,18 @@ public class GUI_BMI  {
 		g9.gridheight = 1;
 		g9.fill = GridBagConstraints.BOTH;
 		g9.anchor = GridBagConstraints.EAST;
-		test.add(jb1,g9);
-		jb1.addActionListener(new ButtonListener());
+		this.add(jb1,g9);
+		jb1.addActionListener( new ButtonListener () );
+		
+		
+	}
 		
 		
 		class ButtonListener implements ActionListener
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-			BMI bmi = new BMI(jt1.getText(), jt2.getText(),jt3.getText(),jt4.getText());
+			BMI bmi = new BMI(name,age,weight,height);
 			JLabel jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
 			GridBagConstraints g10 = new GridBagConstraints();
 			g10.gridx = 0;
@@ -127,16 +144,16 @@ public class GUI_BMI  {
 			g10.gridheight = 1;
 			
 			
-			JLabel jb6 = new JLabel;
-			GridBagConstraints g11 = new JLabel("Your status:" + getStatus);
+			JLabel jb6 = new JLabel();
+			JLabel g11 = new JLabel("Your status:" + bmi.getStatus());
 			
 			}
 		}
 
 
-		test.setVisible(true);
+		
 
-	}
+	
 }
 
 class BMI {
@@ -191,45 +208,54 @@ class BMI {
   public double getHeight() {
     return height;
   }
-}import java.awt.*;
 
 
 
-}
 
 
+
   
-  public double getBMI() {
-    double bmi = weight * KILOGRAMS_PER_POUND / 
-      ((height * METERS_PER_INCH) * (height * METERS_PER_INCH));
-    return Math.round(bmi * 100) / 100.0;
-  }
   
-  public String getStatus() {
-    double bmi = getBMI();
-    if (bmi < 18.5)
-      return "Underweight";
-    else if (bmi < 25)
-      return "Normal";
-    else if (bmi < 30)
-      return "Overweight";
-    else
-      return "Obese";
-  }
   
-  public String getName() {
-    return name;
-  }
   
-  public int getAge() {
-    return age;
-  }
   
-  public double getWeight() {
-    return weight;
-  }
   
-  public double getHeight() {
-    return height;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }
