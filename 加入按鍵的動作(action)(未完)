@@ -134,18 +134,16 @@ public class GUI_BMI extends JFrame {
 		g9.anchor = GridBagConstraints.EAST;
 		test.add(jb1,g9);
 		
-		JLabel jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
+		JLabel jb5 = new JLabel("Your BMI is:" );
 		GridBagConstraints g10 = new GridBagConstraints();
 		g10.gridx = 0;
 		g10.gridy = 7;
 		g10.gridwidth = 1;
 		g10.gridheight = 1;
+		test.add(jb5,g10);
 		
 		
-		
-		
-		
-		JLabel jb6 = new JLabel("Your status:" + bmi.getStatus());
+		JLabel jb6 = new JLabel("Your status:");
 		GridBagConstraints g11 = new GridBagConstraints();
 		g11.gridx = 6;
 		g11.gridy = 5;
@@ -153,6 +151,8 @@ public class GUI_BMI extends JFrame {
 		g11.gridheight = 1;
 		g11.fill = GridBagConstraints.BOTH;
 		g11.anchor = GridBagConstraints.EAST;
+		test.add(jb6,g11);
+		
 		jb1.addActionListener(new ActionListener(){
 			
 			public void actionPerformed(ActionEvent e)
@@ -163,9 +163,29 @@ public class GUI_BMI extends JFrame {
 				double height = Double.parseDouble(jt4.getText());
 				
 				BMI bmi = new BMI(name, age,weight,height);
-			
+				
+				 jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
+				GridBagConstraints g10 = new GridBagConstraints();
+				g10.gridx = 0;
+				g10.gridy = 7;
+				g10.gridwidth = 1;
+				g10.gridheight = 1;
+				
+				
+				
+				
+				 jb6 = new JLabel("Your status:" + bmi.getStatus());
+				GridBagConstraints g11 = new GridBagConstraints();
+				g11.gridx = 6;
+				g11.gridy = 5;
+				g11.gridwidth = 2;
+				g11.gridheight = 1;
+				g11.fill = GridBagConstraints.BOTH;
+				g11.anchor = GridBagConstraints.EAST;
 			
 			}
+			
+			
 			
 			
 		}
