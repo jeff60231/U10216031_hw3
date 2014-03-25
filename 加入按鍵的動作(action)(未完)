@@ -5,38 +5,61 @@ import javax.swing.event.*;
 import javax.swing.JFrame;
 
 
+public class GUI_BMI extends JFrame {
 
-public class GMIBMI  extends JFrame   {
-
-	String name;
-	int age;
-	double weight;
-	double height;
+	
+	
+	
 	public static void main(String[] args){
-		GMIBMI test= new GMIBMI();
+		GUI_BMI test= new GUI_BMI();
 		test.setSize(400,300);
 		test.setTitle("GUI_BMI");
 		test.setLocationRelativeTo(null);
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.getContentPane().setLayout(new GridBagLayout());
-	
-		test.setVisible(true);
-	}
-	
-	public GMIBMI(){
+		
 		
 		JLabel l1 = new JLabel("Name:");
+
+		JLabel l2 = new JLabel("age:");
+		
+		JLabel l3 = new JLabel("height(in meter):");
+		
+
+		JLabel l4 = new JLabel("weight(in kg):");
+		
+
+		final JTextField jt1 = new JTextField();
+		
+		
+		final JTextField jt2 = new JTextField();
+		
+		
+
+		final JTextField jt3 = new JTextField();
+		
+		
+
+		final JTextField jt4 = new JTextField();
+		
+		
+		
+		JButton jb1 = new JButton("start");
+		
+	
+		
+		
+		
 		GridBagConstraints g1 = new GridBagConstraints();
+		
 		g1.gridx = 0;
 		g1.gridy = 0;
 		g1.gridwidth = 1;
 		g1.gridheight = 1;
 		g1.fill = GridBagConstraints.NONE;
 		g1.anchor = GridBagConstraints.WEST;
-		this.getContentPane().add(l1,g1);
+		test.getContentPane().add(l1,g1);
 		
-		
-		JLabel l2 = new JLabel("age:");
 		GridBagConstraints g2 = new GridBagConstraints();
 		g2.gridx = 0;
 		g2.gridy = 1;
@@ -44,32 +67,28 @@ public class GMIBMI  extends JFrame   {
 		g2.gridheight = 1;
 		g2.fill = GridBagConstraints.NONE;
 		g2.anchor = GridBagConstraints.WEST;
-		this.getContentPane().add(l2,g2);
+		test.getContentPane().add(l2,g2);
 		
-		
-		JLabel l3 = new JLabel("weight(in kg):");
 		GridBagConstraints g3 = new GridBagConstraints();
+		
 		g3.gridx = 0;
 		g3.gridy = 2;
 		g3.gridwidth = 1;
 		g3.gridheight = 1;
 		g3.fill = GridBagConstraints.NONE;
 		g3.anchor = GridBagConstraints.WEST;
-		this.getContentPane().add(l3,g3);
+		test.getContentPane().add(l3,g3);
 		
-		
-		JLabel l4 = new JLabel("height(in meter):");
 		GridBagConstraints g4 = new GridBagConstraints();
+		
 		g4.gridx = 0;
 		g4.gridy = 3;
 		g4.gridwidth = 1;
 		g4.gridheight = 1;
 		g4.fill = GridBagConstraints.NONE;
 		g4.anchor = GridBagConstraints.WEST;
-		this.getContentPane().add(l4,g4);
+		test.getContentPane().add(l4,g4);
 		
-		
-		JTextField jt1 = new JTextField();
 		GridBagConstraints g5 = new GridBagConstraints();
 		g5.gridx = 2;
 		g5.gridy = 0;
@@ -77,10 +96,8 @@ public class GMIBMI  extends JFrame   {
 		g5.gridheight = 1;
 		g5.fill = GridBagConstraints.BOTH;
 		g5.anchor = GridBagConstraints.WEST;
-		String name = jt1.getText();
-		this.add(jt1,g5);
+		test.add(jt1,g5);
 		
-		JTextField jt2 = new JTextField();
 		GridBagConstraints g6 = new GridBagConstraints();
 		g6.gridx = 2;
 		g6.gridy = 1;
@@ -88,11 +105,8 @@ public class GMIBMI  extends JFrame   {
 		g6.gridheight = 1;
 		g6.fill = GridBagConstraints.BOTH;
 		g6.anchor = GridBagConstraints.WEST;
-		String ageTemp = jt2.getText();
-		int age = Integer.parseInt(ageTemp);
-		this.add(jt2,g6);
+		test.add(jt2,g6);
 		
-		JTextField jt3 = new JTextField();
 		GridBagConstraints g7 = new GridBagConstraints();
 		g7.gridx = 2;
 		g7.gridy = 2;
@@ -100,11 +114,8 @@ public class GMIBMI  extends JFrame   {
 		g7.gridheight = 1;
 		g7.fill = GridBagConstraints.BOTH;
 		g7.anchor = GridBagConstraints.WEST;
-		String weightTemp = jt3.getText();
-		double weight = Double.parseDouble(weightTemp);
-		this.add(jt3,g7);
+		test.add(jt3,g7);
 		
-		JTextField jt4 = new JTextField();
 		GridBagConstraints g8 = new GridBagConstraints();
 		g8.gridx = 2;
 		g8.gridy = 3;
@@ -112,11 +123,8 @@ public class GMIBMI  extends JFrame   {
 		g8.gridheight = 1;
 		g8.fill = GridBagConstraints.BOTH;
 		g8.anchor = GridBagConstraints.WEST;
-		String heightTemp = jt4.getText();
-		double height = Double.parseDouble(heightTemp);
-		this.add(jt4,g8);
+		test.add(jt4,g8);
 		
-		JButton jb1 = new JButton("start");
 		GridBagConstraints g9 = new GridBagConstraints();
 		g9.gridx = 6;
 		g9.gridy = 5;
@@ -124,30 +132,58 @@ public class GMIBMI  extends JFrame   {
 		g9.gridheight = 1;
 		g9.fill = GridBagConstraints.BOTH;
 		g9.anchor = GridBagConstraints.EAST;
-		this.add(jb1,g9);
-		jb1.addActionListener( new ButtonListener () );
+		test.add(jb1,g9);
+		
+		JLabel jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
+		GridBagConstraints g10 = new GridBagConstraints();
+		g10.gridx = 0;
+		g10.gridy = 7;
+		g10.gridwidth = 1;
+		g10.gridheight = 1;
+		
+		
+		
+		
+		
+		JLabel jb6 = new JLabel("Your status:" + bmi.getStatus());
+		GridBagConstraints g11 = new GridBagConstraints();
+		g11.gridx = 6;
+		g11.gridy = 5;
+		g11.gridwidth = 2;
+		g11.gridheight = 1;
+		g11.fill = GridBagConstraints.BOTH;
+		g11.anchor = GridBagConstraints.EAST;
+		jb1.addActionListener(new ActionListener(){
+			
+			public void actionPerformed(ActionEvent e)
+			{
+				String name = jt1.getText();
+				int age = Integer.parseInt(jt2.getText());
+				double weight = Double.parseDouble(jt3.getText());
+				double height = Double.parseDouble(jt4.getText());
+				
+				BMI bmi = new BMI(name, age,weight,height);
+			
+			
+			}
+			
+			
+		}
+		);
+		
+		
+		
+		test.setVisible(true);
+
 		
 		
 	}
 		
 		
-		class ButtonListener implements ActionListener
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-			BMI bmi = new BMI(name,age,weight,height);
-			JLabel jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
-			GridBagConstraints g10 = new GridBagConstraints();
-			g10.gridx = 0;
-			g10.gridy = 7;
-			g10.gridwidth = 1;
-			g10.gridheight = 1;
+		
+		
+		public GUI_BMI(){
 			
-			
-			JLabel jb6 = new JLabel();
-			JLabel g11 = new JLabel("Your status:" + bmi.getStatus());
-			
-			}
 		}
 
 
@@ -208,54 +244,9 @@ class BMI {
   public double getHeight() {
     return height;
   }
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 }
+
+
+
+  
+ 
