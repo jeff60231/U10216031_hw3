@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -23,10 +24,10 @@ public class GUI_BMI extends JFrame {
 
 		JLabel l2 = new JLabel("age:");
 		
-		JLabel l3 = new JLabel("height(in meter):");
+		JLabel l3 = new JLabel("weight(in pound):");
 		
 
-		JLabel l4 = new JLabel("weight(in kg):");
+		JLabel l4 = new JLabel("height(in inch):");
 		
 
 		final JTextField jt1 = new JTextField();
@@ -162,9 +163,9 @@ public class GUI_BMI extends JFrame {
 				double weight = Double.parseDouble(jt3.getText());
 				double height = Double.parseDouble(jt4.getText());
 				
-				BMI bmi = new BMI(name, age,weight,height);
+				BMI Bmi = new BMI(name, age,weight,height);
 				
-				 jb5 = new JLabel("Your BMI is" + bmi.getBMI() + ".");
+				JLabel jb5 = new JLabel("Your BMI is" + Bmi.getBMI() + ".");
 				GridBagConstraints g10 = new GridBagConstraints();
 				g10.gridx = 0;
 				g10.gridy = 7;
@@ -174,7 +175,7 @@ public class GUI_BMI extends JFrame {
 				
 				
 				
-				 jb6 = new JLabel("Your status:" + bmi.getStatus());
+				JLabel jb6 = new JLabel("Your status:" + Bmi.getStatus());
 				GridBagConstraints g11 = new GridBagConstraints();
 				g11.gridx = 6;
 				g11.gridy = 5;
