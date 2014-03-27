@@ -1,106 +1,34 @@
-import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
-import javax.swing.event.*;	
-import javax.swing.JFrame;
+import java.awt.*;
 
 
-public class GUI  {
 
-	/**
-	 * @wbp.parser.entryPoint
-	 */
-	public static void main(){
-		JFrame test= new JFrame();
-		test.setSize(400,300);
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.getContentPane().setLayout(new GridBagLayout());
-		
-		JLabel l1 = new JLabel("Name:");
-		GridBagConstraints g1 = new GridBagConstraints();
-		g1.insets = new Insets(0, 0, 5, 5);
-		g1.gridx = 0;
-		g1.gridy = 0;
-		g1.gridwidth = 1;
-		g1.gridheight = 1;
-		g1.fill = GridBagConstraints.NONE;
-		g1.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l1,g1);
-		
-		JLabel l2 = new JLabel("age:");
-		GridBagConstraints g2 = new GridBagConstraints();
-		g2.insets = new Insets(0, 0, 5, 5);
-		g2.gridx = 0;
-		g2.gridy = 1;
-		g2.gridwidth = 1;
-		g2.gridheight = 1;
-		g2.fill = GridBagConstraints.NONE;
-		g2.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l2,g2);
-		
-		JLabel l3 = new JLabel("height(in meter):");
-		GridBagConstraints g3 = new GridBagConstraints();
-		g3.insets = new Insets(0, 0, 5, 5);
-		g3.gridx = 0;
-		g3.gridy = 2;
-		g3.gridwidth = 1;
-		g3.gridheight = 1;
-		g3.fill = GridBagConstraints.NONE;
-		g3.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l3,g3);
-		
-		JLabel l4 = new JLabel("weight(in kg):");
-		GridBagConstraints g4 = new GridBagConstraints();
-		g4.insets = new Insets(0, 0, 0, 5);
-		g4.gridx = 0;
-		g4.gridy = 3;
-		g4.gridwidth = 1;
-		g4.gridheight = 1;
-		g4.fill = GridBagConstraints.NONE;
-		g4.anchor = GridBagConstraints.WEST;
-		test.getContentPane().add(l4,g4);
-		
-		JTextField jt1 = new JTextField();
-		GridBagConstraints g5 = new GridBagConstraints();
-		g5.gridx = 1;
-		g5.gridy = 0;
-		g5.gridwidth = 8;
-		g5.gridheight = 1;
-		g5.fill = GridBagConstraints.BOTH;
-		g5.anchor = GridBagConstraints.WEST;
-		test.add(jt1,g5);
-		JTextField jt2 = new JTextField();
-		GridBagConstraints g6 = new GridBagConstraints();
-		g6.gridx = 1;
-		g6.gridy = 1;
-		g6.gridwidth = 8;
-		g6.gridheight = 1;
-		g6.fill = GridBagConstraints.BOTH;
-		g6.anchor = GridBagConstraints.WEST;
-		test.add(jt2,g6);
-		
-		JTextField jt3 = new JTextField();
-		GridBagConstraints g7 = new GridBagConstraints();
-		g7.gridx = 1;
-		g7.gridy = 2;
-		g7.gridwidth = 8;
-		g7.gridheight = 1;
-		g7.fill = GridBagConstraints.BOTH;
-		g7.anchor = GridBagConstraints.WEST;
-		test.add(jt3,g7);
-		
-		JTextField jt4 = new JTextField();
-		GridBagConstraints g8 = new GridBagConstraints();
-		g8.gridx = 1;
-		g8.gridy = 3;
-		g8.gridwidth = 8;
-		g8.gridheight = 1;
-		g8.fill = GridBagConstraints.BOTH;
-		g8.anchor = GridBagConstraints.WEST;
-		test.add(jt4,g8);
-		
-		
-		test.setVisible(true);
 
+public class BMI_GUI extends JFrame {
+	public static void main(String [] args)
+	{
+		BMI_GUI frame = new BMI_GUI();
+		frame.setTitle("BMI_GUI");
+		frame.setSize(300,300);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+	}
+	
+	public BMI_GUI()
+	{
+		setLayout(new GridLayout(5,2,0,20));
+		
+		add(new JLabel("Name"));
+		add(new JTextField());
+		add(new JLabel("Age"));
+		add(new JTextField());
+		add(new JLabel("Weight(in pound)"));
+		add(new JTextField());
+		add(new JLabel("Height in inch"));
+		add(new JTextField());
+		add(new JButton("Start"));
+		
 	}
 }
