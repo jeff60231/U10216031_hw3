@@ -1,0 +1,89 @@
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import java.awt.event.*;
+
+public class BMI_GUI extends JFrame {
+
+	String name;//declare the variable
+	int age;
+	double weight;
+	double height;
+
+	
+
+	JButton jb1 = new JButton("Start");//create the components
+
+	JTextField jt1 = new JTextField();
+	JTextField jt2 = new JTextField();
+	JTextField jt3 = new JTextField();
+	JTextField jt4 = new JTextField();
+
+	JLabel jl1 = new JLabel("<YOUR BMI>");
+	JLabel jl2 = new JLabel("<Status>");
+
+	public static void main(String[] args) {//main method
+		BMI_GUI frame = new BMI_GUI();
+		frame.setTitle("BMI_GUI");
+		frame.setSize(300, 300);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+	}
+
+	public BMI_GUI() {//constructor
+
+		JPanel jp1 = new JPanel();//create a panel puts components
+		jp1.setLayout(new GridLayout(6, 3, 0, 10));
+		jp1.add(new JLabel("Name"));
+		jp1.add(jt1);
+		jp1.add(new JLabel("Age"));
+		jp1.add(jt2);
+		jp1.add(new JLabel("Weight(in kg)"));
+		jp1.add(jt3);
+		jp1.add(new JLabel("Height (in meter)"));
+		jp1.add(jt4);
+		jp1.add(jl1);
+		jp1.add(jl2);
+
+		JPanel jp2 = new JPanel(new GridLayout(1, 1));//create a panel puts the start button
+		jp2.add(jb1, BorderLayout.EAST);
+
+		jp1.add(jp2);
+
+		add(jp1, BorderLayout.NORTH);
+
+		jb1.addActionListener(new ActionListener() {//the event listener
+
+			public void actionPerformed(ActionEvent e) {
+				name = jt1.getText();
+				age = Integer.parseInt(jt2.getText());
+				weight = Double.parseDouble(jt3.getText());
+				height = Double.parseDouble(jt4.getText());
+
+				jl1.setText("Your BMI is :" + " " + String.valueOf((getBMI())));
+				jl2.setText("Your are " + getStatus());
+
+			}
+
+			double getBMI() {//method to compute BMI and return
+				double bmi = weight / (height  * height)  ;
+				return Math.round(bmi * 100) / 100.0;
+			}
+
+			String getStatus() {//judge the BMI and return the matched text
+				double bmi = getBMI();
+				if (bmi < 18.5)
+					return "Underweight";
+				else if (bmi < 25)
+					return "Normal";
+				else if (bmi < 30)
+					return "Overweight";
+				else
+					return "Obese";
+			}
+		});
+
+	}
+
+}
